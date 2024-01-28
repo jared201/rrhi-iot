@@ -1,5 +1,4 @@
 
-import Hero from './components/Hero.vue'
 import App from './App.vue'
 import { createApp } from 'vue'
 import 'bulma/css/bulma.css'
@@ -40,6 +39,7 @@ import { createMetaManager, defaultConfig, resolveOption} from "vue-meta";
 import { createPinia } from "pinia";
 import TouchPanel from "@/components/touchscreen/TouchPanel.vue";
 import BeefSms from "@/components/beef_sms/BeefSms.vue";
+import DeviceStatusCard from "@/components/smart_dashboard/DeviceStatusCard.vue";
 
 const decisionMaker5000000 = resolveOption((prevValue, context) => {
     const { uid = 0 } = context.vm || {}
@@ -51,8 +51,8 @@ const decisionMaker5000000 = resolveOption((prevValue, context) => {
 const routes = [
     {
         path: "/",
-        name: "Hero",
-        component: Hero
+        name: "DeviceStatusCard",
+        component: DeviceStatusCard
     },
     {
         path: "/cards",
