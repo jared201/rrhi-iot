@@ -3,7 +3,7 @@
   <div class="content has-text-centered">
     <div>
       <p>
-        <strong>Beef Design System</strong> by <a href="https://main.hueburg.com">Hueburg Solutions Consultancy, Inc.</a> Copyright {{ year }}
+        <strong>Smart Device Dashboard</strong> by <a href="https://collaberadigital.com">Collabera Digital</a> Copyright {{ year }}
       </p>
     </div>
   </div>

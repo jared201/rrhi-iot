@@ -6,21 +6,16 @@
   <div id="app" class="container">
 
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <nav-bar-header></nav-bar-header>
-    <sidebar/>
 
-    
     <router-view :key="$route.fullPath"></router-view>
-    <nav-bar-footer/>
+    <NavbarFooter/>
     
    
   </div>
 </template>
 
 <script lang="javascript">
-import NavBarHeader from './components/NavBarHeader.vue'
-import NavBarFooter from './components/NavBarFooter.vue'
-import Sidebar from './components/Sidebar.vue'
+
 import {onMounted, } from 'vue';
 import { useMeta } from 'vue-meta'
 ;
@@ -28,25 +23,23 @@ import { useMeta } from 'vue-meta'
 export default {
   name: 'App',
   components: {
-    NavBarHeader,
-    NavBarFooter,
-    Sidebar,
+    NavbarFooter: () => import('./components/NavBarFooter.vue'),
   }, 
   setup() {
     onMounted(() => {
       var sidebarSensitiveDivs = document.querySelectorAll(".sidebar-sensitive");
       for (let i = 0; i < sidebarSensitiveDivs.length; i++) {
         sidebarSensitiveDivs[i].addEventListener('click', function(event) {
-          NavBarHeader.methods.closeNav(event);
+          console.log('sidebar-sensitive click event', event);
         });
       }
     })
     useMeta({
-      title: 'The Beef Dashboard Template',
+      title: 'The Smart Device Dashboard POC',
       meta: [
         {
           name: 'description',
-          content: 'The Beef Dashboard Template is based on Bulma and Vue'
+          content: 'A proof of concept for a smart device dashboard'
         },
         {
           name: 'keywords',

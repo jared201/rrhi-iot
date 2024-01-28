@@ -43,5 +43,25 @@ express()
                 }
             }
         });
+    }).
+    get('/test_device_status', (req, res)=>{
+        console.log("test_device_status");
+        const ds = require('./server/deviceStatus');
+        ds.updateDeviceStatus('Store Branch Name', 'Device Name', 'Current Operating Status', 'Current Room Temperature', 'Current Device Temperature', 'Create Date', 'Modified Date', (err, msg)=>{
+            if (err){
+                res.status(404).send('Device Status not updated');
+            } else {
+                res.status(200).send(msg);
+            }
+        });
+    })
+    .get('/test_read_device_status', (req, res)=>{
+        console.log("test_read_device_status");
+        const ds = require('./server/deviceStatus');
+        ds.readDeviceStatus('Store Branch Name', 'Device Name', (statusData, msg)=>{
+            console.table(statusData);
+            console.log(msg);
+            res.status(200).send(statusData);
+        });
     })
     .listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
