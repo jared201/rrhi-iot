@@ -1,7 +1,11 @@
 BSD 2-Clause License
 
+<<<<<<< HEAD
 Copyright (c) 2022, Jared Odulio
 All rights reserved.
+=======
+Copyright (c) 2024, Jared Odulio
+>>>>>>> de4dd46f8c096a9816c3a4db94e65d6cec7198f5
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
