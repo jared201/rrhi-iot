@@ -5,7 +5,7 @@ Live demo is available at [Beef Template](https://beef-template.herokuapp.com/#/
 
 ## Project setup
 ```
-git clone https://github.com/jared201/beef.git
+git clone https://github.com/jared201/rrhi-iot.git
 
 cd ~/beef
 
