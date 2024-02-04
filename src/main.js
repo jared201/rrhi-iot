@@ -30,6 +30,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
+import { faStore } from "@fortawesome/free-solid-svg-icons";
 import Charts from './components/Charts.vue'
 import TrainKiosk from './components/TrainKiosk.vue'
 import PointOfSale from './components/PointOfSale.vue'
@@ -39,7 +40,9 @@ import { createMetaManager, defaultConfig, resolveOption} from "vue-meta";
 import { createPinia } from "pinia";
 import TouchPanel from "@/components/touchscreen/TouchPanel.vue";
 import BeefSms from "@/components/beef_sms/BeefSms.vue";
-import DeviceStatusCard from "@/components/smart_dashboard/DeviceStatusCard.vue";
+import StoreBranches from "@/components/StoreBranches.vue";
+import { faThermometerHalf, faLaptop, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+
 
 const decisionMaker5000000 = resolveOption((prevValue, context) => {
     const { uid = 0 } = context.vm || {}
@@ -51,8 +54,8 @@ const decisionMaker5000000 = resolveOption((prevValue, context) => {
 const routes = [
     {
         path: "/",
-        name: "DeviceStatusCard",
-        component: DeviceStatusCard
+        name: "StoreBranches",
+        component: StoreBranches
     },
     {
         path: "/cards",
@@ -161,7 +164,7 @@ const router = createRouter ({
 library.add(faEnvelope);
 library.add(faTwitter, faLock, faUser, faHouse, faPhone, faCalendar, faPaperPlane, 
     faUpload, faGlobeAmericas, faGithub, faPerson, faUser, faNewspaper, faAngleDown, faFolderOpen,
-    faComment);
+    faComment, faStore, faThermometerHalf, faLaptop, faCheckCircle, faTimesCircle);
 
 const app = createApp(App);
 const metaManager = createMetaManager({defaultConfig, esi: {
