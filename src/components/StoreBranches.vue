@@ -11,7 +11,7 @@
             <font-awesome-icon icon="fa-store" class="fa-5x"/> <!-- Placeholder icon, replace with your own -->
           </span>
 
-          <p>Uncle John's Branch {{ n }}</p>
+          <p>{{ branch_name }} {{ n }}</p>
           <p><font-awesome-icon color="#0000FF" class="fa-thermometer-half" icon="fa-thermometer-half" /> Current Temperature: {{ temperature }}°C</p>
           <p><font-awesome-icon class="devices-icon" icon="fa-laptop" /> Number of Devices: {{ devices }}</p>
           <p><font-awesome-icon color="green" class="online-icon" icon="fa-check-circle" /> Online: {{ online }}</p>
@@ -28,6 +28,7 @@
 export default {
   data() {
     return {
+      branch_name: 'Uncle John\'s Branch',
       temperature: 20, // Initial temperature
       devices: 3, // Initial number of devices
       online: 3, // Initial number of online devices
@@ -38,6 +39,9 @@ export default {
     handleClick(n) {
       console.log(`Card ${n} clicked`);
       // Add your own logic here
+      //navigate to the device status page with the branch id and branch_name as parameters
+      this.$router.push({ name: 'DeviceStatusCard', params: { branch_id: n, branch_name: this.branch_name + ' ' + n } });
+
     }
   }
 }
