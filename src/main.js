@@ -42,6 +42,10 @@ import TouchPanel from "@/components/touchscreen/TouchPanel.vue";
 import BeefSms from "@/components/beef_sms/BeefSms.vue";
 import StoreBranches from "@/components/StoreBranches.vue";
 import { faThermometerHalf, faLaptop, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
+import { faFan } from '@fortawesome/free-solid-svg-icons'
+import { faIceCream } from "@fortawesome/free-solid-svg-icons";
+import { faDrumstickBite } from "@fortawesome/free-solid-svg-icons";
 
 
 const decisionMaker5000000 = resolveOption((prevValue, context) => {
@@ -62,7 +66,7 @@ const routes = [
         name: "Cards",
         component: Cards
     },
-    
+
     {
         path: "/buttons",
         name: "Buttons",
@@ -71,7 +75,7 @@ const routes = [
     {
         path: "/progress",
         name: "Progress",
-        component: ProgressBar,   
+        component: ProgressBar,
     },
     {
         path: "/checkbox",
@@ -152,8 +156,13 @@ const routes = [
         path: '/beef_sms',
         name: 'BeefSMS',
         component: BeefSms
-    }
-    
+    },
+    {
+        path: '/device_status',
+        name: 'DeviceStatusCard',
+        component: () => import("@/components/smart_dashboard/DeviceStatusCard.vue"),
+    },
+
 ]
 
 const router = createRouter ({
@@ -162,9 +171,10 @@ const router = createRouter ({
 })
 
 library.add(faEnvelope);
-library.add(faTwitter, faLock, faUser, faHouse, faPhone, faCalendar, faPaperPlane, 
+library.add(faTwitter, faLock, faUser, faHouse, faPhone, faCalendar, faPaperPlane,
     faUpload, faGlobeAmericas, faGithub, faPerson, faUser, faNewspaper, faAngleDown, faFolderOpen,
-    faComment, faStore, faThermometerHalf, faLaptop, faCheckCircle, faTimesCircle);
+    faComment, faStore, faThermometerHalf, faLaptop, faCheckCircle, faTimesCircle, faSnowflake, faFan
+    , faIceCream, faDrumstickBite);
 
 const app = createApp(App);
 const metaManager = createMetaManager({defaultConfig, esi: {
