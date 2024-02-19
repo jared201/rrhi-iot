@@ -64,4 +64,13 @@ express()
             res.status(200).send(statusData);
         });
     })
+    .get('/get_token', (req, res)=>{
+        console.log("get_token");
+        const tuya = require('./server/tuyaModules');
+        tuya.getTuyaToken('clientId', 'secret').then((token)=>{
+            res.status(200).send(token);
+        }).catch((err)=>{
+            res.status(404).send('Token not retrieved');
+        });
+    })
     .listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
