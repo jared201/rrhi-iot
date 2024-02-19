@@ -67,9 +67,13 @@ express()
     .get('/get_token', (req, res)=>{
         console.log("get_token");
         const tuya = require('./server/tuyaModules');
-        tuya.getTuyaToken('clientId', 'secret').then((token)=>{
+        console.log(req.query.clientId, req.query.secret);
+        let clientId = req.query.clientId;
+        let secret = req.query.secret;
+        tuya.getTuyaToken(clientId, secret).then((token)=>{
             res.status(200).send(token);
         }).catch((err)=>{
+            console.error(err);
             res.status(404).send('Token not retrieved');
         });
     })
